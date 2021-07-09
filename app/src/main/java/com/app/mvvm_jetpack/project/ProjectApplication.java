@@ -3,6 +3,9 @@ package com.app.mvvm_jetpack.project;
 import android.app.Activity;
 import android.app.Application;
 
+import com.app.mvvm_jetpack.config.NetworkRequiredInfo;
+import com.app.network.base.NetworkApi;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
@@ -21,6 +24,7 @@ public class ProjectApplication extends Application implements ViewModelStoreOwn
     @Override
     public void onCreate() {
         super.onCreate();
+        NetworkApi.init(new NetworkRequiredInfo());
         //全局的viewmodel
         this.mAppViewModelStore = new ViewModelStore();
     }
